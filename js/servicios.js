@@ -1,5 +1,5 @@
 // js/servicios.js
-const db_servicios = [
+const servicios = [
     {
         "codigo": "SV001",
         "categoria": "Consultas",
