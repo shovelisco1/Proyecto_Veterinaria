@@ -1,17 +1,37 @@
+import { useState } from "react";
 import { Header } from "./components/Header";
+import { Inicio } from "./components/Inicio";
+import { Catalogo } from "./components/Catalogo";
+import { Carrito } from "./components/Carrito";
+import { Detalle } from "./components/detalle"; 
 
 function App() {
+  const [vistaActual, setVistaActual] = useState('inicio');
+  
+  
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+
+  const verDetalleProducto = (codigo) => {
+    setProductoSeleccionado(codigo);
+    setVistaActual('detalle');
+  };
+
   return (
-    <div className="bg-light min-vh-100">
-      <Header />
+    <div className="bg-light min-vh-100 pb-5">
+      <Header setVistaActual={setVistaActual} />
       
-      <main className="container mt-5">
-        {/* Aquí irá el contenido central más adelante */}
-        <div className="text-center p-5 bg-white shadow-sm rounded">
-          <h1>Cuidamos a tu mejor amigo</h1>
-          <p className="text-muted">Encuentra los mejores servicios médicos y productos para tu mascota.</p>
-        </div>
-      </main>
+      {vistaActual === 'inicio' && <Inicio />}
+      
+      {vistaActual === 'catalogo' && <Catalogo verDetalle={verDetalleProducto} />}
+      {vistaActual === 'carrito' && <Carrito />}
+      
+      {vistaActual === 'detalle' && (
+          <Detalle 
+              codigoProducto={productoSeleccionado} 
+              setVistaActual={setVistaActual} 
+          />
+      )}
     </div>
   );
 }
