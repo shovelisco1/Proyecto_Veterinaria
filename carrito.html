@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Vet San Marcos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>🐾 Vet San Marcos</h2>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="login.html" class="login">Ingresar</a>
+            <a href="carrito.html" class="carrito-btn" style="font-weight: bold; color: #007bff;">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </nav>
+    </header>
+
+    <main class="contenedor-catalogo" style="max-width: 900px; margin: 30px auto; padding: 20px;">
+        <h1 style="margin-bottom: 20px;">Mi Carrito de Compras</h1>
+
+        <div id="contenedor-carrito">
+        </div>
+    </main>
+
+    <script src="js/carrito.js"></script>
+</body>
+</html>
