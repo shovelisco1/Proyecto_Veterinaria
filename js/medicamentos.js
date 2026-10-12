@@ -1,5 +1,5 @@
 // js/medicamentos.js
-const db_medicamentos = [
+const medicamentos = [
     {
         "codigo": "ME001",
         "categoria": "Antibióticos",
