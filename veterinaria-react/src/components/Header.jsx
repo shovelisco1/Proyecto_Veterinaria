@@ -8,15 +8,17 @@ export const Header = ({ setVistaActual }) => {
             <nav className="d-none d-md-flex gap-3">
                 <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('inicio'); }} className="text-decoration-none text-secondary fw-bold">Inicio</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('catalogo'); }} className="text-decoration-none text-secondary fw-bold">Catálogo</a>
-                <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('inicio'); }} className="text-decoration-none text-secondary fw-bold">Nosotros</a>
-                <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('inicio'); }} className="text-decoration-none text-secondary fw-bold">Contacto</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('blog'); }} className="text-decoration-none text-secondary fw-bold">Blog</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('contacto'); }} className="text-decoration-none text-secondary fw-bold">Contacto</a>
             </nav>
 
             <div className="opciones-usuario d-flex gap-2">
                 <a href="#" onClick={(e) => { e.preventDefault(); setVistaActual('carrito'); }} className="btn btn-outline-success fw-bold">
                     🛒 Carrito
                 </a>
-                <a href="#" className="btn btn-primary fw-bold">Ingresar</a>
+                <button onClick={() => setVistaActual('login')} className="btn btn-primary fw-bold">
+                    Ingresar
+                </button>
             </div>
         </header>
     );
