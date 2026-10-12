@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const precio = producto['Precio (CLP)'] || producto['Precio unitario (CLP)'] || producto.precio;
     const descripcion = producto.observaciones || producto.principioActivo || 'Sin descripción adicional.';
 
-    // Lógica para determinar si mostramos el selector de cantidad
+    
     let selectorCantidadHTML = '';
     
-    // Si tiene la propiedad 'stock', asumimos que es un medicamento
+    
     if (producto.stock !== undefined) {
         let opciones = '';
-        // Creamos opciones del 1 hasta el stock máximo (limitado a 10 para no hacer una lista eterna)
+        
         const maximo = Math.min(producto.stock, 10);
         for (let i = 1; i <= maximo; i++) {
             opciones += `<option value="${i}">${i}</option>`;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </select>
         `;
     } else {
-        // Es un servicio, ocultamos el selector pero mantenemos el input con valor 1 para que el carrito funcione
+       
         selectorCantidadHTML = `<input type="hidden" id="cantidad-producto" value="1">`;
     }
 
@@ -71,4 +71,41 @@ document.addEventListener('DOMContentLoaded', () => {
             
         </div>
     `;
+    
+    const btnAgregar = contenedor.querySelector('.btn-agregar-carrito');
+    
+    btnAgregar.addEventListener('click', () => {
+        
+        const inputCantidad = document.getElementById('cantidad-producto');
+        const cantidad = parseInt(inputCantidad.value);
+
+        
+        const productoParaCarrito = {
+            codigo: producto.codigo,
+            nombre: nombre,
+            precio: precio,
+            imagen: producto.imagen,
+            cantidad: cantidad
+        };
+
+        
+        let carrito = JSON.parse(localStorage.getItem('carritoVetSanMarcos')) || [];
+
+       
+        const indexExistente = carrito.findIndex(item => item.codigo === producto.codigo);
+        
+        if (indexExistente !== -1) {
+            
+            carrito[indexExistente].cantidad += cantidad;
+        } else {
+           
+            carrito.push(productoParaCarrito);
+        }
+
+        
+        localStorage.setItem('carritoVetSanMarcos', JSON.stringify(carrito));
+
+        
+        alert(`¡${cantidad}x ${nombre} añadido al carrito con éxito!`);
+    });
 });
