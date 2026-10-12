@@ -162,3 +162,42 @@ article button:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
+
+/* detalle producto*/
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.precio-detalle {
+    font-size: 2rem;
+    color: #007bff;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.acciones-detalle {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.acciones-detalle input {
+    width: 60px;
+    padding: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .detalle-grid {
+        grid-template-columns: 1fr;
+    }
+}

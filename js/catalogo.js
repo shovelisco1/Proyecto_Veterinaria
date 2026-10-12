@@ -39,9 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             tarjeta.classList.add('tarjeta-producto'); 
             
             tarjeta.innerHTML = `
-                <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; border-radius: 5px;">
+                <a href="detalle.html?codigo=${producto.codigo}" style="text-decoration: none; display: block;">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; border-radius: 5px; cursor: pointer;">
+                </a>
                 <div style="padding: 15px;">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">${producto.nombre}</h3>
+                    <a href="detalle.html?codigo=${producto.codigo}" style="text-decoration: none; color: inherit;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px;">${producto.nombre}</h3>
+                    </a>
                     <p style="color: #007bff; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;">$${producto.precio}</p>
                     <button class="btn-agregar-carrito" data-codigo="${producto.codigo}" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
                         Añadir al carrito
